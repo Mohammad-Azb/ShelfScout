@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShelfScout • Creative Scan</title>
+  <link rel="stylesheet" href="./styles.creative.css" />
+</head>
+<body>
+  <!-- Icons -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.6A9 9 0 1 1 11.4 3a7 7 0 0 0 9.6 9.6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M17 8l-5-5-5 5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3v12" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M5 3v18l16-9L5 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 6V4h8v2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 6l1 16h10l1-16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><path d="M21 19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 16 5-5 4 4 3-3 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 15V3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 16v-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 8h.01" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="grain"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div class="brand-text">
+          <div class="brand-row">
+            <h1 class="title">ShelfScout</h1>
+            <span class="chip chip-soft">Creative Scan</span>
+          </div>
+          <p class="subtitle">Drop a shelf photo → get a restock vibe ✨</p>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <button id="themeBtn" class="btn btn-ghost" type="button" aria-label="Toggle theme">
+          <svg id="themeIcon" class="ico"><use href="#i-moon"></use></svg>
+          <span id="themeText">Dark</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section class="grid">
+      <!-- Preferences -->
+      <div class="card card-pop">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Preferences</div>
+            <div class="card-sub">Pick your vibe (no technical stuff)</div>
+          </div>
+          <span id="validationBadge" class="chip chip-muted">Waiting</span>
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+            <div>
+              <div class="setting-title">Show overlays</div>
+              <div class="setting-sub">Masks + highlights on your image</div>
+            </div>
+            <button id="masksToggle" class="switch" type="button" role="switch" aria-checked="false" aria-label="Toggle overlays"></button>
+          </div>
+
+          <div class="sep"></div>
+
+          <div class="row row-stack">
+            <div class="grow">
+              <div class="setting-title">Restock sensitivity</div>
+              <div class="setting-sub">When to call it “needs restock”</div>
+            </div>
+            <div class="chip chip-strong"><span id="thresholdVal">35%</span></div>
+          </div>
+
+          <input id="thresholdRange" class="range" type="range" min="0" max="100" value="35" step="1" aria-label="Restock sensitivity" />
+
+          <div class="presets">
+            <button class="pill-btn" data-preset="20" type="button">Low</button>
+            <button class="pill-btn active" data-preset="35" type="button">Med</button>
+            <button class="pill-btn" data-preset="50" type="button">High</button>
+            <span class="hintline">Tip: Med is usually a good starting point.</span>
+          </div>
+
+          <div class="sep"></div>
+
+          <div class="note">
+            <div class="note-head">
+              <svg class="ico"><use href="#i-info"></use></svg>
+              <div>
+                <div class="setting-title">Notes</div>
+                <div class="setting-sub">Optional: add context for your report</div>
+              </div>
+            </div>
+            <textarea id="notes" class="textarea" rows="4" placeholder="e.g., backroom restock is tomorrow, promo week, etc."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upload + Analyze -->
+      <div class="card card-pop">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Upload & Analyze</div>
+            <div class="card-sub">One image in, insights out</div>
+          </div>
+
+          <div class="badges">
+            <span id="statusBadge" class="chip chip-muted">—</span>
+            <span id="timeBadge" class="chip chip-muted">—</span>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div id="dropZone" class="dropzone" tabindex="0" role="button" aria-label="Upload image">
+            <div class="dz-left">
+              <div class="dz-ico"><svg class="ico"><use href="#i-upload"></use></svg></div>
+              <div>
+                <div class="dz-title">Drop an image</div>
+                <div class="dz-sub">or click to browse</div>
+              </div>
+            </div>
+
+            <div class="pill" title="Selected file">
+              <svg class="ico"><use href="#i-image"></use></svg>
+              <span id="fileName">No file selected</span>
+            </div>
+
+            <input id="fileInput" type="file" accept="image/*" hidden />
+          </div>
+
+          <div id="errorBox" class="error" style="display:none;"></div>
+
+          <div class="status">
+            <div class="status-left">
+              <div id="spinner" class="spinner" aria-hidden="true"></div>
+              <div>
+                <div id="statusTitle" class="status-title">Ready</div>
+                <div id="statusSub" class="status-sub">Add a photo to begin.</div>
+              </div>
+            </div>
+            <div class="status-right">
+              <button id="clearBtn" class="btn btn-ghost" type="button">
+                <svg class="ico"><use href="#i-trash"></use></svg>
+                Clear
+              </button>
+              <button id="analyzeBtn" class="btn btn-primary" type="button" disabled>
+                <svg class="ico"><use href="#i-play"></use></svg>
+                Analyze
+                <span id="btnSpin" class="btn-spin" aria-hidden="true" style="display:none"></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="progress-wrap" aria-hidden="true">
+            <div class="progress">
+              <div id="progressBar" class="progress-bar" style="width:0%"></div>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div id="resultsPanel" class="results" style="display:none;">
+            <div class="insights">
+              <div class="mini">
+                <div class="k">Stock vibe</div>
+                <div id="stockLabel" class="v">—</div>
+                <div class="s">Overall shelf status</div>
+              </div>
+              <div class="mini">
+                <div class="k">Empty shelf</div>
+                <div id="emptyPct" class="v">—</div>
+                <div class="s">Estimated open space</div>
+              </div>
+              <div class="mini">
+                <div class="k">Items found</div>
+                <div id="itemsFound" class="v">—</div>
+                <div class="s">Approx. count</div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="tabs" role="tablist" aria-label="Preview tabs">
+                <button class="tab active" data-tab="original" type="button">Original</button>
+                <button class="tab" data-tab="highlights" type="button">Highlights</button>
+                <button class="tab" data-tab="masks" type="button">Overlays</button>
+              </div>
+
+              <div class="frame" data-pane="original">
+                <img id="previewImg" class="img" alt="original preview" loading="lazy" decoding="async"/>
+                <div id="previewHint" class="hint">Your image preview will appear here.</div>
+              </div>
+
+              <div class="frame" data-pane="highlights" style="display:none;">
+                <img id="highlightsImg" class="img" alt="highlights overlay" loading="lazy" decoding="async"/>
+                <div id="highlightsHint" class="hint">Highlights appear after analysis.</div>
+              </div>
+
+              <div class="masks-pane" data-pane="masks" style="display:none;">
+                <div class="mask-head">
+                  <div class="mask-title">Choose an overlay</div>
+                  <div class="tabs small">
+                    <button class="tab active" data-mask="product" type="button">Items</button>
+                    <button class="tab" data-mask="empty" type="button">Gaps</button>
+                    <button class="tab" data-mask="background" type="button">Scene</button>
+                  </div>
+                </div>
+                <div class="frame">
+                  <img id="maskImg" class="img" alt="mask overlay" loading="lazy" decoding="async"/>
+                  <div id="maskHint" class="hint">Turn on “Show overlays” to see masks.</div>
+                </div>
+              </div>
+
+              <div class="actions">
+                <div class="actions-title">Downloads</div>
+                <div class="actions-row">
+                  <button id="downloadReportBtn" class="btn btn-secondary" type="button" disabled>
+                    <svg class="ico"><use href="#i-download"></use></svg>
+                    Summary
+                  </button>
+                  <button id="downloadHighlightsBtn" class="btn btn-secondary" type="button" disabled>
+                    <svg class="ico"><use href="#i-download"></use></svg>
+                    Highlights
+                  </button>
+                  <button id="downloadMaskBtn" class="btn btn-secondary" type="button" disabled>
+                    <svg class="ico"><use href="#i-download"></use></svg>
+                    Selected overlay
+                  </button>
+                </div>
+              </div>
+
+              <div id="toast" class="toast" aria-live="polite"></div>
+            </div>
+          </div>
+
+          <div class="footerline">
+            <div>Made to feel fast & fun • <span id="footerStatus" class="mono">Ready</span></div>
+            <div>© <span id="year"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.creative.js"></script>
+</body>
+</html>
